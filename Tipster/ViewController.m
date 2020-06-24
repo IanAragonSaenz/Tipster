@@ -20,6 +20,7 @@
 @implementation ViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    //loading of values
     [super viewWillAppear:animated];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     double defaultTip = [defaults doubleForKey:@"default_tip_percentage"];
@@ -32,6 +33,23 @@
     }
     
     [self.tipControl setTitle:[NSString stringWithFormat:@"%d%%", (int)(defaultTip*100.0) ]  forSegmentAtIndex:0];
+    
+    //loading the saved bill if any
+    double bill = [defaults doubleForKey:@"bill"];
+    
+    if(bill != 0.0){
+        self.billField.text = [NSString stringWithFormat:@"$%f", bill];
+    }
+    
+    NSArray *percentages = @[@(defaultTip), @(.15), @(.2)];
+    double percentage = [percentages[self.tipControl.selectedSegmentIndex] doubleValue];
+    
+    double tip = bill * percentage;
+    double total = bill + tip;
+        
+    self.tipLabel.text = [NSString stringWithFormat:@"$%f", tip];
+    self.totalLabel.text = [NSString stringWithFormat:@"$%f", total];
+    
 }
 
 - (void)viewDidLoad {
@@ -42,11 +60,14 @@
 
 - (IBAction)onEdit:(id)sender {
     double bill = [self.billField.text doubleValue];
-    
+        
+    //loading default tip
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     double defaultTip = [defaults doubleForKey:@"default_tip_percentage"];
-
+    
+    //calculation of tips and showing outcomes in view
     if(defaultTip == 0.00) defaultTip = .1;
+    
     NSArray *percentages = @[@(defaultTip), @(.15), @(.2)];
     double percentage = [percentages[self.tipControl.selectedSegmentIndex] doubleValue];
     
@@ -55,25 +76,39 @@
     
     self.tipLabel.text = [NSString stringWithFormat:@"$%f", tip];
     self.totalLabel.text = [NSString stringWithFormat:@"$%f", total];
+    
+    //saving the bill
+    [defaults setDouble:bill forKey:@"bill"];
+    [defaults synchronize];
 }
 
 - (IBAction)onTap:(id)sender {
+    //disables keyboard
     [self.view endEditing:YES];
 }
+                           
 - (IBAction)onEditingBegin:(id)sender {
-    
-    [UIView animateWithDuration:.2 animations:^{
-        self.billField.frame = CGRectMake(self.billField.frame.origin.x ,self.billField.frame.origin.y, self.billField.frame.size.width,  self.billField.frame.size.height);
+    //animation when selecting billField
+    [UIView animateWithDuration:.3 animations:^{
+        self.billField.frame = CGRectMake(self.billField.frame.origin.x -70 ,self.billField.frame.origin.y, self.billField.frame.size.width+20,  self.billField.frame.size.height+10);
+        
+        self.billField.backgroundColor = [UIColor colorWithRed:149.0f green:2.0f blue:239.0f alpha:.50001f];
         
     }];
     
 }
+                           
 - (IBAction)onEditingEnd:(id)sender {
+    //animation when deselecting billField
     CGRect newFrame = self.billField.frame;
     
-    newFrame.origin.y -= 30;
-    [UIView animateWithDuration:.2 animations:^{
+    newFrame.origin.x += 70;
+    newFrame.size.height -= 10;
+    newFrame.size.width -= 20;
+    
+    [UIView animateWithDuration:.3 animations:^{
         self.billField.frame = newFrame;
+        self.billField.backgroundColor = [UIColor colorWithRed:195.0f green:247.0f blue:225.0f alpha:0.0f];
     }];
     
 }
