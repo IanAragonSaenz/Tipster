@@ -16,6 +16,7 @@
 		D1C9B1D424A2A05200D2DA6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C9B1D324A2A05200D2DA6B /* main.m */; };
 		D1C9B1DE24A2A05200D2DA6B /* TipsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C9B1DD24A2A05200D2DA6B /* TipsterTests.m */; };
 		D1C9B1E924A2A05300D2DA6B /* TipsterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C9B1E824A2A05300D2DA6B /* TipsterUITests.m */; };
+		D1C9B1F824A2BEB000D2DA6B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C9B1F724A2BEB000D2DA6B /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		D1C9B1E424A2A05300D2DA6B /* TipsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C9B1E824A2A05300D2DA6B /* TipsterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipsterUITests.m; sourceTree = "<group>"; };
 		D1C9B1EA24A2A05300D2DA6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1C9B1F624A2BEB000D2DA6B /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		D1C9B1F724A2BEB000D2DA6B /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				D1C9B1C724A2A05100D2DA6B /* ViewController.h */,
 				D1C9B1C824A2A05100D2DA6B /* ViewController.m */,
 				D1C9B1CA24A2A05100D2DA6B /* Main.storyboard */,
+				D1C9B1F624A2BEB000D2DA6B /* SettingsViewController.h */,
+				D1C9B1F724A2BEB000D2DA6B /* SettingsViewController.m */,
 				D1C9B1CD24A2A05200D2DA6B /* Assets.xcassets */,
 				D1C9B1CF24A2A05200D2DA6B /* LaunchScreen.storyboard */,
 				D1C9B1D224A2A05200D2DA6B /* Info.plist */,
@@ -269,6 +274,7 @@
 			files = (
 				D1C9B1C924A2A05100D2DA6B /* ViewController.m in Sources */,
 				D1C9B1C324A2A05100D2DA6B /* AppDelegate.m in Sources */,
+				D1C9B1F824A2BEB000D2DA6B /* SettingsViewController.m in Sources */,
 				D1C9B1D424A2A05200D2DA6B /* main.m in Sources */,
 				D1C9B1C624A2A05100D2DA6B /* SceneDelegate.m in Sources */,
 			);
@@ -446,7 +452,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.IanAragon.Tipster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IanAragon.Tipster2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -463,7 +469,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.IanAragon.Tipster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.IanAragon.Tipster2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
