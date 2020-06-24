@@ -38,7 +38,7 @@
     double bill = [defaults doubleForKey:@"bill"];
     
     if(bill != 0.0){
-        self.billField.text = [NSString stringWithFormat:@"$%f", bill];
+        self.billField.text = [NSString stringWithFormat:@"%f", bill];
     }
     
     NSArray *percentages = @[@(defaultTip), @(.15), @(.2)];
@@ -49,6 +49,8 @@
         
     self.tipLabel.text = [NSString stringWithFormat:@"$%f", tip];
     self.totalLabel.text = [NSString stringWithFormat:@"$%f", total];
+    NSLog(@"%f", tip);
+    NSLog(@"%f", total);
     
 }
 
@@ -80,6 +82,9 @@
     //saving the bill
     [defaults setDouble:bill forKey:@"bill"];
     [defaults synchronize];
+    NSLog(@"bill %f", bill);
+    NSLog(@"tip %f", tip);
+    NSLog(@"total %f", total);
 }
 
 - (IBAction)onTap:(id)sender {
